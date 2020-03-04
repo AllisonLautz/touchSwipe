@@ -19,7 +19,7 @@ function touchSwipe(){
 
 
   if(container.length){
-    for(i = 0; i < container.length; i++){
+    for(var i = 0; i < container.length; i++){
 
 
 
@@ -47,7 +47,7 @@ function touchSwipe(){
 
         touchendX = event.changedTouches[0].screenX;
 
-        gesture(this);
+        gesture(this, classes, cl);
         
 
       }, false);
@@ -57,26 +57,24 @@ function touchSwipe(){
     } // end for
 
 
-    
-    console.log('classes: ', classes)
 
     
-    function gesture(container){
-      x = classes.indexOf(cl);
+    function gesture(container, classes, cl){
+      var x = classes.indexOf(cl);
       if (touchendX < touchstartX) {
         arr[x] = typeof(arr[x]) == 'undefined' ? 1 : arr[x] + 1;
-        swipe('left', container)
+        swipe('left', container, x)
       }
       else{
-        swipe('right', container)
+        swipe('right', container, x)
       }
 
     }
 
 
-    function swipe(dir, container){
+    function swipe(dir, container, x){
 
-      var slide = slide ? slide : arr[x] * 100;
+      var slide = slide ? slide : arr[x] * 100; /* change the 100% to something else (such as 90%) depending on how much of the card is peeking out */
 
       if(dir == 'left'){
         if(arr[x] < n ){

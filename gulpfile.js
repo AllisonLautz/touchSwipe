@@ -28,7 +28,8 @@ var rename = require('gulp-rename');
 var runSequence = require('run-sequence');
 var svgSprite = require('gulp-svg-sprite');
 
-
+const proxy_pro = 'touchSwipe';
+const proxy_air = 'misc_github/touchSwipe';
 
 
 
@@ -52,7 +53,7 @@ const config = {
 
 function sync(){
   return browserSync.init({
-    proxy: 'localhost/misc_github/touchSwipe',
+    proxy: 'localhost/'+proxy_pro,
     open: 'external'
   });
 }
