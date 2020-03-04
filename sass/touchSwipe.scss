@@ -65,3 +65,22 @@ article{
 img{
 	max-width:100%;
 }
+
+.buttons{
+	display:flex;
+	margin:50px 100px 0;
+	width:90px;
+	justify-content:space-between;
+	div{
+		height:40px;
+		width:40px;
+		background-color:#f0a;
+		border-radius:50%;
+		cursor:pointer;
+		transition:.3s ease-in-out;
+		&.inactive{
+			opacity:.5;
+		}
+	}
+
+}
