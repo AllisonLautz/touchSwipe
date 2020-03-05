@@ -30,8 +30,10 @@ section{
 
 
 @for $i from 1 through 8{
-	@media(max-width:800px){
-		.#{count}-#{$i} .wrapper{
+	.#{count}-#{$i} .wrapper{
+		width:100% * ($i/4);
+		// e.g. 150% --> (6/4) where 6 = total and 4 = how many i want to show
+		@media(max-width:800px){
 			width: 100% * $i;
 		}
 	}
@@ -45,6 +47,7 @@ section{
 	position:relative;
 	left:0;
 	transition:.5s ease-in-out;
+	// width:150%;
 }
 
 article{
@@ -71,6 +74,7 @@ img{
 	margin:50px 100px 0;
 	width:90px;
 	justify-content:space-between;
+	&.hidden{display:none;}
 	div{
 		height:40px;
 		width:40px;

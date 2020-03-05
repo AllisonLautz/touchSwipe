@@ -6,7 +6,8 @@ function slider(){
   var itemWidth = document.querySelector('.swipe article').offsetWidth;
   var itemLength = document.querySelectorAll('.swipe article').length;
 
-  var show = Math.ceil(window.innerWidth / itemWidth);
+  // var show = Math.ceil(window.innerWidth / itemWidth); // container width divided by item width. whatever that container may be.
+  var show = Math.ceil(document.querySelector('.swipe').offsetWidth / itemWidth); // container width divided by item width. whatever that container may be.
 
 
   var max = (itemLength - show);
@@ -15,7 +16,7 @@ function slider(){
   var pct = (100 / show).toFixed(2);
   pct = parseFloat(pct);
 
-
+  
 
 
   var next = document.querySelector('.swipe .next');
@@ -25,6 +26,10 @@ function slider(){
 
 
 
+  if(show >= itemLength){
+    document.querySelector('.swipe .buttons').classList.add('hidden');
+  }
+  
 
 
 
@@ -106,6 +111,7 @@ function slider(){
 
     wrapper.style.left = (-1 * click * pct) + '%';
     (click == max ? next.classList.add('inactive') : '');
+    console.log(click);
   }
 
 
@@ -126,6 +132,7 @@ function slider(){
 
     wrapper.style.left = (-1 * click * pct) + '%';
     (click == 0 ? prev.classList.add('inactive') : '');
+    console.log(click);
   }
 
 
